@@ -21,10 +21,11 @@ newTodoForm.addEventListener('submit', e => {
 
 })
 //completed
+
 const completeButton = document.createElement('button');
 completeButton.addEventListener('click', e => {
           
-    todos = todos.filter(c => c != todo)
+    todos = todos.filter(c => c === todo.done)
     localStorage.getItem('todos', JSON.stringify(todos));
     DisplayTodos();
 })
@@ -32,7 +33,7 @@ completeButton.addEventListener('click', e => {
 const allButton = document.createElement('button');
 allButton.addEventListener('click', e => {
           
-    todos = todos.filter(a => a != todo)
+    todos = todos.filter(a => a === todo)
     localStorage.getItem('todos', JSON.stringify(todos));
     DisplayTodos();
 })
@@ -40,7 +41,7 @@ allButton.addEventListener('click', e => {
 const activeButton = document.createElement('button');
 activeButton.addEventListener('click', e => {
           
-    todos = todos.filter(v => v != todo)
+    todos = todos.filter(v => v != todo.done)
     localStorage.getItem('todos', JSON.stringify(todos));
     DisplayTodos();
 })
